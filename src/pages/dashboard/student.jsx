@@ -1,12 +1,12 @@
 import React from "react";
 
-export function Home() {
+export function Student() {
   return (
     <h3 class="block font-sans text-9xl antialiased font-semibold leading-tight tracking-normal text-inherit">
-    Get Ready for the test
+    Student
   </h3>
 
   );
 }
 
-export default Home;
+export default Student;

@@ -6,7 +6,7 @@ import {
   ServerStackIcon,
   RectangleStackIcon,
 } from "@heroicons/react/24/solid";
-import { Home, Profile,  UploadedFiles } from "@/pages/dashboard";
+import { Home,  UploadedFiles, Student, Teacher } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -23,38 +23,28 @@ export const routes = [
         path: "/home",
         element: <Home />,
       },
-      // {
-      //   icon: <UserCircleIcon {...icon} />,
-      //   name: "profile",
-      //   path: "/profile",
-      //   element: <Profile />,
-      // },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "upload",
         path: "/upload",
         element: <UploadedFiles />,
       },
-    ],
-  },
-  {
-    title: "auth pages",
-    layout: "auth",
-    pages: [
       {
-        icon: <ServerStackIcon {...icon} />,
-        name: "sign in",
-        path: "/sign-in",
-        element: <SignIn />,
+        icon: <TableCellsIcon {...icon} />,
+        name: "Teacher",
+        path: "/teach",
+        element: <Teacher />,
       },
       {
-        icon: <RectangleStackIcon {...icon} />,
-        name: "sign up",
-        path: "/sign-up",
-        element: <SignUp />,
+        icon: <TableCellsIcon {...icon} />,
+        name: "Student",
+        path: "/student",
+        element: <Student />,
       },
+      
     ],
   },
+ 
 ];
 
 export default routes;
