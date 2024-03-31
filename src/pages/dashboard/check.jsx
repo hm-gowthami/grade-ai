@@ -16,11 +16,9 @@ function Check() {
   };
 
   return (
-    <div className="mt-12 mb-8 flex flex-col gap-12">
+    <div className="mt-1 mb-8 flex flex-col gap-12">
       <Card>
         <CardBody>
-          {" "}
-          <div className="title">Upload file</div>
           <FileUpload
             files={files}
             setFiles={setFiles}
@@ -28,15 +26,14 @@ function Check() {
           />
         </CardBody>
       </Card>
-      <Card>
-        <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
+      <Card >
+        <CardHeader   variant="gradient" color='green' className="mb-8 p-6">
           <Typography variant="h4" color="white">
-            Uploaded Files Gowthami
+            Uploaded Documents
           </Typography>
         </CardHeader>
         <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
-          {" "}
-          <FileList files={files} removeFile={removeFile} />
+                   <FileList files={files} removeFile={removeFile} />
         </CardBody>
       </Card>
     </div>

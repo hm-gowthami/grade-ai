@@ -23,12 +23,12 @@ export const routes = [
         path: "/home",
         element: <Home />,
       },
-      {
-        icon: <TableCellsIcon {...icon} />,
-        name: "upload",
-        path: "/upload",
-        element: <UploadedFiles />,
-      },
+      // {
+      //   icon: <TableCellsIcon {...icon} />,
+      //   name: "upload",
+      //   path: "/upload",
+      //   element: <UploadedFiles />,
+      // },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "Teacher",

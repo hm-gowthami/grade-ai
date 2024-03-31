@@ -1,36 +1,65 @@
 li {
   list-style: none;
-  margin: 1.2em;
+  width: 96%;
+  margin: 20px;
   background-color: #f55e3038;
   border-radius: 5px;
   display: flex;
   align-items: center;
-  padding: 1.2em 1.5em;
+  padding: 30px;
 
-  icon-two{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
   svg {
     color: #f55321;
-    &:first-child {
-      font-size: 1.2em;
-      margin-right: 0.8em;
-    }
+    /* &:first-child { */
+    font-size: 1.2em;
+
+    display: flex;
+    flex-direction: row;
+    /* width: 30%; */
+    margin-right: 10px;
+    /* justify-content: space-between; */
+    /* } */
   }
 
   p {
     flex: 1;
+    width: 40%;
     font-size: 0.9rem;
   }
 
   .actions {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
     justify-content: space-between;
-    cursor: pointer;
 
-    .fa-spinner {
-      font-size: 1.2em;
+    .icons-words {
+      color: #f55321;
+      margin-right: 6px;
+      font-weight: bold;
     }
   }
+}
+.modal-class {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .pdf-div {
+    overflow: auto;
+    height: 800px;
+    width: 800px;
+    padding: 30px;
+    background-color: #a77f7f;
+    margin-top: 20px;
+  }
+  canvas.react-pdf__Page__canvas {
+    margin-bottom: 8px;
+    width: 1000px;
+  }
+
+  z-index: 999;
+  
 }
