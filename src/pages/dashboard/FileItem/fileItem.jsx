@@ -7,11 +7,12 @@ import {
   faPenToSquare,
   faSpinner,
   faTrash,
+  faCircleCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { Document, Page, pdfjs } from "react-pdf";
 import { Box, Modal } from "@mui/material";
 
-const FileItem = ({ file, deleteFile }) => {
+const FileItem = ({ file, deleteFile, props }) => {
   const [numPages, setNumPages] = useState();
   const [pageNumber, setPageNumber] = useState(1);
   const [open, setOpen] = useState(false);
@@ -73,27 +74,60 @@ const FileItem = ({ file, deleteFile }) => {
           )}
           {!file.isUploading && (
             <>
+              {!props.student && (
+                <span>
+                  <span  className="icons-words">
+                    {" "}
+                    View{" "}
+                  </span>
+                  <FontAwesomeIcon
+                    icon={faEye}
+                    beat
+                    // style={{ color: "#0c72c0" }}
+                    size="lg"
+                    className="fa-solid"
+                    onClick={() => handleOpen(file)}
+                  />{" "}
+                </span>
+              )}
               <span>
-                <span className="icons-words"> View </span>
+                <span className="icons-words">
+                  {" "}
+                  Edit{" "}
+                </span>
                 <FontAwesomeIcon
-                  icon={faEye}
-                  className="fa-solid"
-                  onClick={() => handleOpen(file)}
-                />{" "}
-              </span>
-              <span>
-                <span className="icons-words"> Edit </span>
-                <FontAwesomeIcon
+                  flip
+                  size="lg"
+                  // style={{ color: "#63E6BE" }}
                   icon={faPenToSquare}
                   className="fa-solid"
                   onClick={() => deleteFile(file.name)}
                 />
               </span>
               <span>
-                <span className="icons-words"> Delete </span>
+                <span  className="icons-words">
+                  {" "}
+                  Delete{" "}
+                </span>
                 <FontAwesomeIcon
                   icon={faTrash}
+                  shake
+                  size="lg"
                   className="fa-solid"
+                  // style={{ color: "#cc0519" }}
+                  onClick={() => deleteFile(file.name)}
+                />
+              </span>
+              <span>
+                <span  className="icons-words">
+                  {" "}
+                  Assessment{" "}
+                </span>
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  beat
+                  size="lg"
+                  // style={{ color: "#230481" }}
                   onClick={() => deleteFile(file.name)}
                 />
               </span>
@@ -106,8 +140,7 @@ const FileItem = ({ file, deleteFile }) => {
               <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
                 {Array.apply(null, Array(numPages))
                   .map((x, i) => i + 1)
-                  .map((page) => 
-                  {
+                  .map((page) => {
                     return (
                       <Page
                         pageNumber={page}

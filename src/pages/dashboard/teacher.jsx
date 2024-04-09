@@ -1,8 +1,10 @@
 import React from "react";
 import Check from "./check";
 import { Card, CardHeader, Typography } from "@material-tailwind/react";
+import PaginationCard from "./tableAns/paginationCard";
 
 export function Teacher() {
+  let teacher=true
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
@@ -12,7 +14,8 @@ export function Teacher() {
           </Typography>
         </CardHeader>
       </Card>
-      <Check />
+      <Check teacher={teacher}/>
+      <PaginationCard/>
     </div>
   );
 }

@@ -19,15 +19,43 @@ export function SignUp() {
   const [selectedOption, setSelectedOption] = useState("");
   const [email, setEmail] = useState("");
   const [check, setCheck] = useState(false);
-  const options = [
-    { label: "Teacher", value: 1 },
-    { label: "Student", value: 2 },
-  ];
+  const [error, setError] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+
+    // if (username.toString().length === 0) {
+    //   setError("Username is required");
+    // } else if (email.toString().length === 0) {
+    //   setError("Email is required");
+    // } else if (password.toString().length === 0) {
+    //   setError("password is required");
+    // } else if (mobileNum.toString().length === 0) {
+    //   setError("Mobile Number is required");
+    // } else if (selectedOption.toString().length === 0) {
+    //   setError("Role is required");
+    // }
+    //  else {
+    //   let newUser = new FormData();
+    //   newUser.append("name", name);
+    //   newUser.append("email", email);
+    //   newUser.append("password2", password2);
+    //   newUser.append("role", role);
+    //   newUser.append("profileImg", ProfileImg);
+    //   newUser.append("phone_number", phone_number);
+    //   newUser.append("skills", skills);
+    //   newUser.append("password", password);
+    //   console.log("append data", newUser);
+    //   registerUser(newUser, history);
+    //   console.log(newUser);
+    // }
+  };
   return (
     <section className="m-8 flex">
       <div className="w-2/5 h-full hidden lg:block">
         <img
-          style={{ width: "100%", marginTop:'50px', marginLeft:'100px' }}
+          style={{ width: "100%", marginTop: "50px", marginLeft: "100px" }}
           src="/img/signup.gif"
           className="h-full w-full object-cover rounded-3xl"
         />
@@ -45,7 +73,11 @@ export function SignUp() {
             Enter your email, username and password to register.
           </Typography>
         </div>
-        <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
+        {/* //noValidate */}
+        <form
+          onSubmit={onSubmit}
+          className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2"
+        >
           <div className="mb-1 flex flex-col gap-6">
             <Typography
               variant="small"
@@ -57,6 +89,9 @@ export function SignUp() {
             <Input
               size="lg"
               placeholder="UserName"
+              value={username}
+              required
+              style={{ color: "black", fontSize: "18px" }}
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
@@ -74,8 +109,11 @@ export function SignUp() {
             </Typography>
             <Input
               size="lg"
+              value={email}
+              required
               placeholder="name@mail.com"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              style={{ color: "black", fontSize: "18px" }}
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
@@ -93,6 +131,9 @@ export function SignUp() {
             <Input
               size="lg"
               type="password"
+              value={password}
+              style={{ color: "black", fontSize: "18px" }}
+              required
               placeholder="Password"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
@@ -112,6 +153,9 @@ export function SignUp() {
             <Input
               size="lg"
               type="number"
+              value={mobileNum}
+              required
+              style={{ color: "black", fontSize: "18px" }}
               placeholder="Enter Mobile Number"
               className=" text-black !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
@@ -131,16 +175,22 @@ export function SignUp() {
             <Select
               size="lg"
               placeholder="Select Your Role"
+              value={selectedOption}
+              style={{ color: "black", fontSize: "18px" }}
+              required
               className=" text-black !border-t-blue-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
+              onChange={(e) => setSelectedOption(e)}
             >
-              <Option>Teacher</Option>
-              <Option>Student</Option>
+              <Option value="teacher">Teacher</Option>
+              <Option value="student">Student</Option>
             </Select>
           </div>
           <Checkbox
+            checked={check}
+            required
             label={
               <Typography
                 variant="small"
@@ -157,11 +207,13 @@ export function SignUp() {
               </Typography>
             }
             containerProps={{ className: "-ml-2.5" }}
-            onChange={(e) => setCheck(e.target.value)}
+            onChange={() => setCheck(!check)}
           />
-          <Button className="mt-6" color="blue" fullWidth>
+          <Link to="/auth/sign-in" className="text-blue-900 ml-1">
+          <Button className="mt-6" color="blue" fullWidth type="submit">
             Register Now
           </Button>
+          </Link>
           <Typography
             variant="paragraph"
             className="text-center text-blue-gray-500 font-medium mt-4"

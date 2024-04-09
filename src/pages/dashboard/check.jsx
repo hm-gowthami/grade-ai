@@ -8,7 +8,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-function Check() {
+function Check(props) {
+  console.log('props', props)
   const [files, setFiles] = useState([]);
 
   const removeFile = (filename) => {
@@ -33,7 +34,7 @@ function Check() {
           </Typography>
         </CardHeader>
         <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
-                   <FileList files={files} removeFile={removeFile} />
+                   <FileList props={props} files={files} removeFile={removeFile} />
         </CardBody>
       </Card>
     </div>

@@ -36,7 +36,7 @@ export function SignIn() {
         <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
           <div className="mb-1 flex flex-col gap-6">
             <Typography
-              variant="small"
+              variant="large"
               color="black"
               className="-mb-3 font-medium"
             >
@@ -46,7 +46,7 @@ export function SignIn() {
               size="lg"
               type="text"
               placeholder="Username"
-              style={{ color: "black" }}
+              style={{ color: "black", fontSize: "18px" }}
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
@@ -54,7 +54,7 @@ export function SignIn() {
               onChange={(e) => setUsername(e.target.value)}
             />
             <Typography
-              variant="small"
+              variant="large"
               color="black"
               className="-mb-3 font-medium"
             >
@@ -64,6 +64,7 @@ export function SignIn() {
               type="password"
               size="lg"
               placeholder="********"
+              style={{ color: "black", fontSize: "18px" }}
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
@@ -120,7 +121,7 @@ export function SignIn() {
       </div>
       <div className="w-2/5 h-full hidden lg:block">
         <img
-          style={{ width: "100%", marginTop: "50px", marginLeft:'-200px'  }}
+          style={{ width: "100%", marginTop: "50px", marginLeft: "-200px" }}
           src="/img/signup.gif"
           className="h-full w-full object-cover rounded-3xl"
         />{" "}

@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import FileItem from "./../FileItem/fileItem";
 
-const FileList = ({ files, removeFile }) => {
+const FileList = ({ files, removeFile, props }) => {
   const deleteFileHandler = (_name) => {
     // axios.delete(`http://localhost:8080/upload?name=${_name}`)
     //     .then((res) => removeFile(_name))
@@ -21,7 +21,7 @@ const FileList = ({ files, removeFile }) => {
       {files &&
         files.map((f) => (
           
-          <FileItem key={f.name} file={f} deleteFile={deleteFileHandler} />
+          <FileItem key={f.name} file={f}  props={props} deleteFile={deleteFileHandler} />
         ))}
     </ul>
   );

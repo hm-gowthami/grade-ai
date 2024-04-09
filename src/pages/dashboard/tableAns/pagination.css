@@ -1,0 +1,78 @@
+.exam-container {
+    font-family: Arial, sans-serif;
+  }
+  
+  .question-display {
+    margin-bottom: 20px;
+    border: 1px solid #640707;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .question-display h3 {
+    margin: 0 0 10px 0;
+  }
+  
+  .question-display p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .question-display button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .question-palette {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 250px; /* Adjust based on your layout */
+  }
+  
+  .question-palette h4 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .question-palette button {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 10px;
+    margin: 2px;
+    width: 40px; /* You can adjust width and height */
+    height: 40px; /* to better fit your design */
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .question-palette button.active,
+  .question-palette button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  /* Feedback message box styling */
+  .feedback-message {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
