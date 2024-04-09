@@ -191,7 +191,6 @@ const data = [
     marksObt: "40",
   },
 ];
-// Dummy data for questions, you'd replace this with your actual data //new Array(20).fill(null).map((each, i) => ({
 
 const questions = data.map((each, i) => ({
   id: ` ${each.qNo}`,
@@ -223,15 +222,17 @@ const PaginationCard = () => {
       </div>
       <div className="question-palette">
         <h4>View Question Palette:</h4>
-        {questions.map((each, index) => (
-          <button
-            key={index}
-            className={currentQuestionIndex === index ? "active" : ""}
-            onClick={() => goToQuestion(index)}
-          >
-            {index + 1}
-          </button>
-        ))}
+        <div style={{ backgroundColor:"pink" }}>
+          {questions.map((each, index) => (
+            <button style={{borderRadius:"50px"}}
+              key={index}
+              className={currentQuestionIndex === index ? "active" : ""}
+              onClick={() => goToQuestion(index)}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

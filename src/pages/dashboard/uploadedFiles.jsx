@@ -1,16 +1,4 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Avatar,
-  Chip,
-  Tooltip,
-  Progress,
-} from "@material-tailwind/react";
-import { authorsTableData } from "@/data";
-import Profile from "./profile";
-import PdfCompe from "./pdf-reader";
+
 import Check from "./check";
 
 export function UploadedFiles() {

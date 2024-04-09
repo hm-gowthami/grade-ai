@@ -1,13 +1,5 @@
-import {
-  HomeIcon,
-  UserCircleIcon,
-  TableCellsIcon,
-  InformationCircleIcon,
-  ServerStackIcon,
-  RectangleStackIcon,
-} from "@heroicons/react/24/solid";
-import { Home,  UploadedFiles, Student, Teacher } from "@/pages/dashboard";
-import { SignIn, SignUp } from "@/pages/auth";
+import { HomeIcon, TableCellsIcon } from "@heroicons/react/24/solid";
+import { Home, UploadedFiles, Student, Teacher } from "@/pages/dashboard";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -23,12 +15,6 @@ export const routes = [
         path: "/home",
         element: <Home />,
       },
-      // {
-      //   icon: <TableCellsIcon {...icon} />,
-      //   name: "upload",
-      //   path: "/upload",
-      //   element: <UploadedFiles />,
-      // },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "Teacher",
@@ -41,10 +27,8 @@ export const routes = [
         path: "/student",
         element: <Student />,
       },
-      
     ],
   },
- 
 ];
 
 export default routes;

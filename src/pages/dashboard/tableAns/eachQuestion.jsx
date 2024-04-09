@@ -3,9 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faExclamation } from "@fortawesome/free-solid-svg-icons";
 import "./tableAns.css";
 
-export const EachQuestion = ({ head }) => {
+export const EachQuestion = ({
+  head,
+  currentQuestionIndex,
+  arr,
+  goToQuestion,
+}) => {
   const avg = 2;
-  console.log("kfjsflfjdsfklsdfhead----->HEAD", head);
   const { ans, marksObt, marksQn, qNo, qnT, rubrics } = head;
   return (
     <Card
@@ -16,6 +20,7 @@ export const EachQuestion = ({ head }) => {
       }}
     >
       {" "}
+      <h3>{`Question No. ${currentQuestionIndex + 1} of ${arr}`}</h3>
       <table className="table1">
         <thead className="thead1">
           <tr>
@@ -106,6 +111,21 @@ export const EachQuestion = ({ head }) => {
           </tr>
         </tbody>
       </table>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginTop:"30px"
+        }}
+      >
+        <button onClick={() => goToQuestion(currentQuestionIndex - 1)}>
+          Previous Question
+        </button>
+        <button onClick={() => goToQuestion(currentQuestionIndex + 1)}>
+          Skip & Next
+        </button>
+      </div>
     </Card>
   );
 };

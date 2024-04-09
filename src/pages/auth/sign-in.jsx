@@ -91,7 +91,7 @@ export function SignIn() {
             onClick={(e) => setCheck(e.target.value)}
             containerProps={{ className: "-ml-2.5" }}
           />
-          <Link to="/dashboard/*" className="text-blue-900 ml-1">
+          <Link to="/dashboard/home" className="text-blue-900 ml-1">
             <Button
               className="mt-6"
               color="blue"
