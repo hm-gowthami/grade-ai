@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { EachQuestion } from "./eachQuestion";
 import "./pagination.css";
 const TableComponent = ({ data }) => {
+  
   return (
     <div
       style={{

@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
-import {
-  Input,
-  Button,
-  Textarea,
-  Typography,
-} from "@material-tailwind/react";
+import { Input, Button, Textarea, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import "./assessment.css";
 import TableComponent from "../tableAns/tableAns";
@@ -20,7 +15,7 @@ const AssessmentFormPage = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [resultData, setResultData] = useState(null);
-
+  const [error, setError] = useState("");
 
   const isFormIncomplete =
     formData.total_marks.trim() === "" ||
@@ -46,7 +41,14 @@ const AssessmentFormPage = () => {
         formData
       );
       if (response.status === 200) {
-        setResultData(response?.data);
+        console.log("res", response);
+        if (typeof response?.data === "object" && response !== null) {
+          console.log("Response is an object:", response.data);
+          setResultData(response?.data);
+        } else {
+          console.error("Response is not an object:", response.data);
+          setError(response?.data);
+        }
       }
     } catch (error) {
       console.error("There was an error with the API call", error);
@@ -143,12 +145,11 @@ const AssessmentFormPage = () => {
               size="regular"
               outline={true}
               placeholder="Type your message here"
-              />
+            />
           </div>
           <Button
             disabled={isFormIncomplete}
             className="button-ass"
-            
             onClick={handleSubmit}
           >
             Assessment
@@ -159,6 +160,8 @@ const AssessmentFormPage = () => {
         <div>
           {isLoading ? (
             <Spinner />
+          ) : error ? (
+            <h2 style={{ color: "red" }}>{error}</h2>
           ) : (
             resultData && <TableComponent data={resultData} />
           )}
