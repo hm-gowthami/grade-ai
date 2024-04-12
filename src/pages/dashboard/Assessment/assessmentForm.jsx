@@ -156,7 +156,7 @@ const AssessmentFormPage = () => {
           </Button>
         </form>
       </div>
-      <div style={{ marginTop: "30px" }}>
+      <div style={{ marginTop: "30px", width: "100%" }}>
         <div>
           {isLoading ? (
             <Spinner />

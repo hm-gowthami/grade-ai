@@ -1,7 +1,8 @@
 import { Card } from "@material-tailwind/react";
-import React, { useState } from "react";
+import React from "react";
 import "./pagination.scss";
-const EachQuestion = () => import("./eachQuestion");
+import { EachQuestion } from "./eachQuestion";
+
 const TableComponent = ({ data }) => {
   return (
     <div
@@ -10,7 +11,6 @@ const TableComponent = ({ data }) => {
         flexDirection: "row",
         width: "100%",
         justifyContent: "center",
-        // backgroundColor: "#e4a08c",
       }}
     >
       <div className="exam-container">

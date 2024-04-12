@@ -4,10 +4,6 @@ import FileItem from "./../FileItem/fileItem";
 
 const FileList = ({ files, removeFile, props }) => {
   const deleteFileHandler = (_name) => {
-    // axios.delete(`http://localhost:8080/upload?name=${_name}`)
-    //     .then((res) => removeFile(_name))
-    //     .catch((err) => console.error(err));
-
     return true 
   };
   return (

@@ -1,4 +1,9 @@
 .butten-nav{
     width: auto;
-    background-color: rgb(158, 231, 179) !important;
+    //background-color: rgba(213, 220, 170, 0.869) !important;
+    cursor: pointer;
+}
+.butten-nav:hover{
+    cursor: pointer;
+    background-color: rgba(94, 108, 4, 0.931) !important;
 }

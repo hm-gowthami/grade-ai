@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./fileUpload.scss";
-import axios from "axios";
 
 const FileUpload = ({ files, setFiles, removeFile }) => {
   const uploadHandler = (event) => {
@@ -13,20 +12,9 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
     // upload file
     const formData = new FormData();
     formData.append("newFile", file, file.name);
-    // axios.post('http://localhost:8080/upload', formData)
-    //     .then((res) => {
-    //         file.isUploading = false;
-    //         setFiles([...files, file])
-    //     })
-    //     .catch((err) => {
-    //         // inform the user
-    //         console.error(err)
-    //         removeFile(file.name)
-    //     });
-    // file.isUploading = false;
     file.isUploading = false;
     setFiles([...files, file]);
-   // removeFile(file.name)
+   
   };
 
   return (

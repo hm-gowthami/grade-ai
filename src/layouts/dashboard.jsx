@@ -1,14 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { Cog6ToothIcon } from "@heroicons/react/24/solid";
-import { IconButton } from "@material-tailwind/react";
-import { Sidenav, DashboardNavbar } from "@/widgets";
+import { DashboardNavbar } from "@/widgets";
 import routes from "@/routes";
-import { useMaterialTailwindController } from "@/context";
-
 export function Dashboard() {
-  const [controller, dispatch] = useMaterialTailwindController();
-  const { sidenavType } = controller;
-
   return (
     <div className="min-h-screen bg-blue-gray-50/50">
       <div className="p-4 xl:ml-100">

@@ -1,10 +1,8 @@
 import {
-  Card,
   Input,
   Checkbox,
   Button,
   Typography,
-  FormControl,
   Select,
   Option,
 } from "@material-tailwind/react";

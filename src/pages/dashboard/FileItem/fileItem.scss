@@ -10,15 +10,11 @@ li {
 
   svg {
     color: #f55321;
-    /* &:first-child { */
     font-size: 1.2em;
 
     display: flex;
     flex-direction: row;
-    /* width: 30%; */
     margin-right: 10px;
-    /* justify-content: space-between; */
-    /* } */
   }
 
   p {
@@ -55,11 +51,5 @@ li {
     background-color: #a77f7f;
     margin-top: 20px;
   }
-  /* canvas.react-pdf__Page__canvas {
-    margin-bottom: 8px;
-    width: 1000px;
-  } */
-
   z-index: 999;
-  
 }

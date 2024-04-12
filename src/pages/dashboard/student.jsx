@@ -1,8 +1,6 @@
 import React from "react";
 import Check from "./check";
 import { Card, CardHeader, Typography } from "@material-tailwind/react";
-import TableComponent from "./tableAns/tableAns";
-import DynamicForm from "./Assessment/dynamicInput";
 
 export function Student() {
   let student = true;
