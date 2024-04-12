@@ -7,7 +7,7 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import './sign.css'
 export function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,7 @@ export function SignIn() {
   };
   return (
     <section className="ml-8 flex gap-4">
-      <div  className="w-full lg:w-3/5 mt-5">
+      <div className="w-full lg:w-3/5 mt-5">
         <div className="text-center">
           <Typography variant="h2" color="black" className="font-bold mb-4">
             {" "}
@@ -32,10 +32,13 @@ export function SignIn() {
           </Typography>
         </div>
         <form
-          style={{ height:"500px", paddingTop: "30px", paddingBottom: "30px" }}
+          style={{ height: "500px", paddingTop: "30px", paddingBottom: "30px" }}
           className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2"
         >
-          <div style={{width:"100%", paddingRight:"20px", paddingLeft:"20px",}} className="mb-1 flex flex-col gap-6">
+          <div
+            style={{ width: "100%", paddingRight: "20px", paddingLeft: "20px" }}
+            className="mb-1 flex flex-col gap-6"
+          >
             <Typography
               variant="large"
               color="black"
@@ -120,7 +123,10 @@ export function SignIn() {
           </Typography>
         </form>
       </div>
-      <div style={{marginTop:"85px", marginLeft:"60px"}} className="w-2/5 h-full hidden lg:block">
+      <div
+        style={{ marginTop: "85px", marginLeft: "60px" }}
+        className="w-2/5 h-full hidden lg:block"
+      >
         <img
           style={{ width: "100%", marginTop: "50px", marginLeft: "-200px" }}
           src="/img/signup.gif"
