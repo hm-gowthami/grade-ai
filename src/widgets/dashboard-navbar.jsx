@@ -5,7 +5,6 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import { UserCircleIcon } from "@heroicons/react/24/solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChalkboardUser,

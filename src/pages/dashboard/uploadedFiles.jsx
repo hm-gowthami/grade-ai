@@ -1,6 +1,5 @@
 
-import Check from "./check";
-
+const Check = () => import("./check");
 export function UploadedFiles() {
   return (
     <>
