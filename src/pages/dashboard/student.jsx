@@ -2,6 +2,7 @@ import React from "react";
 import Check from "./check";
 import { Card, CardHeader, Typography } from "@material-tailwind/react";
 import TableComponent from "./tableAns/tableAns";
+import DynamicForm from "./Assessment/dynamicInput";
 
 export function Student() {
   let student=true
@@ -14,7 +15,8 @@ export function Student() {
           </Typography>
         </CardHeader>
       </Card>
-      <Check student={student}/>
+      {/* <Check student={student}/> */}
+      <DynamicForm/>
       {/* <TableComponent/> */}
     </div>
   );

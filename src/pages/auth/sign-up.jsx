@@ -11,7 +11,7 @@ import {
 
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import './sign.css'
+import './sign.scss'
 export function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

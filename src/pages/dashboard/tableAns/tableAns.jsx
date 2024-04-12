@@ -1,7 +1,7 @@
 import { Card } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { EachQuestion } from "./eachQuestion";
-import "./pagination.css";
+import "./pagination.scss";
 const TableComponent = ({ data }) => {
   
   return (

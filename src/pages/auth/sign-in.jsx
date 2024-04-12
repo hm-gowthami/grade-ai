@@ -7,7 +7,7 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import './sign.css'
+import './sign.scss'
 export function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

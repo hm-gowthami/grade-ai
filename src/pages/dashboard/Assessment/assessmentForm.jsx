@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Input, Button, Textarea, Typography } from "@material-tailwind/react";
 import axios from "axios";
-import "./assessment.css";
+import "./assessment.scss";
 import TableComponent from "../tableAns/tableAns";
 import Spinner from "./spinner";
 

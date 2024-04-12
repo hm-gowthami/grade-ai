@@ -1,7 +1,7 @@
 import { Card, Typography } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faExclamation, faX } from "@fortawesome/free-solid-svg-icons";
-import "./tableAns.css";
+import "./tableAns.scss";
 
 export const EachQuestion = ({ head }) => {
   const avg = 2;

@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import "./fileUpload.css";
+import "./fileUpload.scss";
 import axios from "axios";
 
 const FileUpload = ({ files, setFiles, removeFile }) => {

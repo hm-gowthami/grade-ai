@@ -14,7 +14,7 @@ import {
   faPen,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import "./dashboard-nav.css";
+import "./dashboard-nav.scss";
 export function DashboardNavbar() {
   return (
     <Navbar fullWidth>

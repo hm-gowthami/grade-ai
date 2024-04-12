@@ -37,7 +37,7 @@
 import React, { useState } from 'react';
 import { Modal, Button } from '@material-ui/core';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
-import 'tailwindcss/tailwind.css';
+import 'tailwindscss/tailwind.scss';
 
 const PdfComp = () => {
   const [open, setOpen] = useState(false);
