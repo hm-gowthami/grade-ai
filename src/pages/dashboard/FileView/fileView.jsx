@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
 function FileView({props}) {
-    console.log("props-->f", props)
+
   pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     "pdfjs-dist/build/pdf.worker.min.js",
     import.meta.url

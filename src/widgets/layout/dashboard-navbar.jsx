@@ -11,9 +11,10 @@ import {
   faChalkboardUser,
   faGraduationCap,
   faHouse,
+  faPen,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
-
+import "./dashboard-nav.css";
 export function DashboardNavbar() {
   return (
     <Navbar fullWidth>
@@ -21,60 +22,68 @@ export function DashboardNavbar() {
         <div className="flex justify-between gap-6 md:flex-row md:items-center">
           {" "}
           <Link to="/dashboard/home">
-            <Button
-              variant="text"
-              color="blue"
-              className="hidden items-center gap-1 px-4 xl:flex "
-            >
+            <Button variant="text" className="butten-nav">
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <FontAwesomeIcon
                   icon={faHouse}
                   size="2xl"
                   style={{ paddingRight: "10px" }}
                 />
-                <h2 style={{ paddingTop: "8px", fontSize:"17px" }}> Dashboard </h2>
+                <h4 style={{ paddingTop: "8px", fontSize: "17px" }}>
+                  {" "}
+                  Dashboard{" "}
+                </h4>
               </div>
             </Button>
           </Link>
           <Link to="/dashboard/teach">
-            <Button
-              variant="text"
-              color="blue"
-              className="hidden items-center gap-1 px-4 xl:flex "
-            >
+            <Button variant="text" className="butten-nav">
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <FontAwesomeIcon
                   icon={faChalkboardUser}
                   size="2xl"
                   style={{ paddingRight: "10px" }}
                 />
-                <h2 style={{ paddingTop: "8px", fontSize:"17px" }}> Teacher </h2>
+                <h4 style={{ paddingTop: "8px", fontSize: "17px" }}>
+                  {" "}
+                  Teacher{" "}
+                </h4>
               </div>{" "}
             </Button>
           </Link>
           <Link to="/dashboard/student">
-            <Button
-              variant="text"
-              color="blue"
-              className="hidden items-center gap-1 px-4 xl:flex "
-            >
+            <Button variant="text" className="butten-nav">
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <FontAwesomeIcon
                   icon={faGraduationCap}
                   size="2xl"
                   style={{ paddingRight: "10px" }}
                 />{" "}
-                <h2 style={{ paddingTop: "8px", fontSize:"17px" }}> Student </h2>
+                <h4 style={{ paddingTop: "8px", fontSize: "17px" }}>
+                  {" "}
+                  Student{" "}
+                </h4>
+              </div>{" "}
+            </Button>
+          </Link>{" "}
+          <Link to="/dashboard/assessment-form">
+            <Button variant="text" className="butten-nav">
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <FontAwesomeIcon
+                  icon={faPen}
+                  size="2xl"
+                  style={{ paddingRight: "10px" }}
+                />
+                <h4 style={{ paddingTop: "8px", fontSize: "17px" }}>
+                  {" "}
+                  Assessment
+                </h4>
               </div>{" "}
             </Button>
           </Link>{" "}
         </div>
         <Link to="/auth/sign-in">
-          <Button
-            variant="text"
-            color="blue"
-            className="hidden items-center gap-1 px-4 xl:flex "
-          >
+          <Button variant="text" className="butten-nav">
             {" "}
             <div style={{ display: "flex", flexDirection: "row" }}>
               <FontAwesomeIcon
@@ -82,7 +91,10 @@ export function DashboardNavbar() {
                 size="2xl"
                 style={{ paddingRight: "10px" }}
               />
-              <h2 style={{ paddingTop: "5px", fontSize:"17px" }}> Sign Out </h2>
+              <h4 style={{ paddingTop: "5px", fontSize: "17px" }}>
+                {" "}
+                Sign Out{" "}
+              </h4>
             </div>
           </Button>
         </Link>

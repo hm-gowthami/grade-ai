@@ -9,7 +9,6 @@ import {
 } from "@material-tailwind/react";
 
 function Check(props) {
-  console.log('props', props)
   const [files, setFiles] = useState([]);
 
   const removeFile = (filename) => {
@@ -27,14 +26,14 @@ function Check(props) {
           />
         </CardBody>
       </Card>
-      <Card >
-        <CardHeader   variant="gradient" color='green' className="mb-8 p-6">
-          <Typography variant="h4" color="white">
+      <Card>
+        <CardHeader variant="gradient" className="mb-8 p-6">
+          <Typography variant="h4" color="black">
             Uploaded Documents
           </Typography>
         </CardHeader>
         <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
-                   <FileList props={props} files={files} removeFile={removeFile} />
+          <FileList props={props} files={files} removeFile={removeFile} />
         </CardBody>
       </Card>
     </div>

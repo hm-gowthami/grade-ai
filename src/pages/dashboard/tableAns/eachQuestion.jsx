@@ -1,49 +1,39 @@
 import { Card, Typography } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faExclamation, faX } from "@fortawesome/free-solid-svg-icons";
 import "./tableAns.css";
 
-export const EachQuestion = ({
-  head,
-  currentQuestionIndex,
-  arr,
-  goToQuestion,
-}) => {
+export const EachQuestion = ({ head }) => {
   const avg = 2;
-  const { ans, marksObt, marksQn, qNo, qnT, rubrics } = head;
+  const { answer, obtainedMarks, marks, question, rubrics } = head;
+
   return (
     <Card
       style={{
-        border: "3px solid orange",
+        border: "3px solid #90EE90",
         padding: "20px",
         margin: "30px",
       }}
     >
-      {" "}
-      <h3>{`Question No. ${currentQuestionIndex + 1} of ${arr}`}</h3>
       <table className="table1">
         <thead className="thead1">
           <tr>
-            <th className="th-thead1">{qNo}</th>
-            <th>
-              <h4>{qnT}</h4>
+            <th colSpan={2}>
+              <h4> Q. {question}</h4>
             </th>
             <th
-              style={{
-                width: "10%",
-              }}
+            // style={{
+            //   width: "10%",
+            // }}
             >
-              <h4>{marksQn} Marks</h4>
+              <h4>{marks} Marks</h4>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr key={qNo}>
-            <td className="ans-code-1">
-              <Typography>Ans</Typography>
-            </td>
-            <td colSpan={2} className="ans-code">
-              <h5>{ans}</h5>
+          <tr>
+            <td colSpan={3} className="ans-code">
+              <h5>{answer}</h5>
             </td>
           </tr>
         </tbody>
@@ -52,7 +42,7 @@ export const EachQuestion = ({
       <br />
       <table className="table2">
         <tbody>
-          <tr style={{ height: "80px" }}>
+          <tr style={{ height: "70px" }}>
             <th className="rubrics-th1">Rubrics</th>
             <th className="rubrics-th2"> Evaluation</th>
             <th className="rubrics-th3"> Marks</th>
@@ -74,18 +64,29 @@ export const EachQuestion = ({
                       size="2xl"
                       style={{ color: "#43a047" }}
                     />
+                  ) : each?.marks === "0" ? (
+                    <FontAwesomeIcon
+                      icon={faX}
+                      size="2xl"
+                      style={{ color: "#cc0f3f" }}
+                    />
                   ) : (
                     <FontAwesomeIcon
                       icon={faExclamation}
                       size="2xl"
-                      style={{ color: "#e60707" }}
+                      style={{ color: "#f46315" }}
                     />
                   )}
                 </td>
                 <td
                   style={{
-                    backgroundColor: each?.marks >= avg ? "#43a047" : "#e60707",
-                    padding: "20px",
+                    backgroundColor:
+                      each?.marks >= avg
+                        ? "#43a047"
+                        : each?.marks === "0"
+                        ? "#cc0f3f"
+                        : "#f46315",
+                    paddingLeft: "40px",
                   }}
                   className="rubrics-cell-icon-num"
                 >
@@ -98,34 +99,23 @@ export const EachQuestion = ({
       </table>
       <br />
       <table className="table2">
-        <tbody>
-          <tr>
-            <td style={{ width: "90%", padding: "20px" }}>
-              <h2>Total Final Marks </h2>
+        <tbody className="thead1">
+          <tr style={{ height: "70px" }}>
+            <td colSpan={3} style={{ width: "80%" }}>
+              <h3>
+                {" "}
+                <b>Total Final Marks </b>{" "}
+              </h3>
             </td>
-            <td style={{ width: "10%", padding: "20px" }}>
-              <h2>
-                <b>{marksObt} Marks </b>
-              </h2>
+            <td style={{ width: "10%" }}>
+              <h3>
+                {" "}
+                <b>{obtainedMarks} Marks </b>
+              </h3>
             </td>
           </tr>
         </tbody>
       </table>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginTop:"30px"
-        }}
-      >
-        <button onClick={() => goToQuestion(currentQuestionIndex - 1)}>
-          Previous Question
-        </button>
-        <button onClick={() => goToQuestion(currentQuestionIndex + 1)}>
-          Skip & Next
-        </button>
-      </div>
     </Card>
   );
 };

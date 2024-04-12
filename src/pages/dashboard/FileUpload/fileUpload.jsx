@@ -27,7 +27,6 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
     file.isUploading = false;
     setFiles([...files, file]);
    // removeFile(file.name)
-    console.log("fiels--->Gowthami", files)
   };
 
   return (

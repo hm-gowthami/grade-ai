@@ -7,14 +7,9 @@ const FileList = ({ files, removeFile, props }) => {
     // axios.delete(`http://localhost:8080/upload?name=${_name}`)
     //     .then((res) => removeFile(_name))
     //     .catch((err) => console.error(err));
-    console.log("deleted", _name);
+
     return true 
   };
- let dummy= files&& files.map(f=>{
-    console.log("files===list", f)
-    return f
-  })
-  console.log("dummm-->list", dummy)
   return (
     
     <ul className="file-list">
