@@ -62,7 +62,11 @@ const AssessmentFormPage = () => {
       <div>
         <form className="form-ass">
           <div className="text-center">
-            <Typography variant="h2" color="black" className="animated-text">
+            <Typography
+              variant="h2"
+              style={{ color: "#1b1b5e" }}
+              className="animated-text"
+            >
               {" "}
               Assessment
             </Typography>
@@ -70,15 +74,15 @@ const AssessmentFormPage = () => {
           <div className="div-input-parent">
             <div className="div-input-1">
               <Typography
-                variant="large"
-                color="black"
+                variant="h5"
+                style={{ color: "#1b1b5e" }}
                 className="mb-3 font-medium"
               >
                 Question
               </Typography>
               <Input
                 size="lg"
-                style={{ color: "black", fontSize: "18px" }}
+                style={{ color: "#1b1b5e", fontSize: "18px" }}
                 fullWidth
                 type="text"
                 name="question"
@@ -89,15 +93,15 @@ const AssessmentFormPage = () => {
             </div>{" "}
             <div className="div-input-2">
               <Typography
-                variant="large"
-                color="black"
+                variant="h5"
+                style={{ color: "#1b1b5e" }}
                 className="mb-3 font-medium"
               >
                 Marks
               </Typography>
               <Input
                 size="lg"
-                style={{ color: "black", fontSize: "18px" }}
+                style={{ color: "#1b1b5e", fontSize: "18px" }}
                 fullWidth
                 type="text"
                 name="total_marks"
@@ -109,19 +113,19 @@ const AssessmentFormPage = () => {
           </div>
           <div className="div-input">
             <Typography
-              variant="large"
-              color="black"
+              variant="h5"
+              style={{ color: "#1b1b5e" }}
               className="mb-3 font-medium"
             >
               Answer
             </Typography>
             <Textarea
-              style={{ color: "black", fontSize: "18px" }}
+              style={{ color: "#1b1b5e", fontSize: "18px" }}
               className="input-field"
               name="answer"
               value={formData.answer}
               onChange={handleChange}
-              color="lightBlue"
+              // color="lightBlue"
               size="regular"
               outline={true}
               placeholder="Type your message here"
@@ -130,8 +134,8 @@ const AssessmentFormPage = () => {
 
           <div className="div-input-rubrics">
             <Typography
-              variant="large"
-              color="black"
+              variant="h5"
+              style={{ color: "#1b1b5e" }}
               className="mb-3 font-medium"
             >
               Rubrics
@@ -141,7 +145,7 @@ const AssessmentFormPage = () => {
               name="rubrics"
               value={formData.rubrics}
               onChange={handleChange}
-              style={{ color: "black", fontSize: "18px" }}
+              style={{ color: "#1b1b5e", fontSize: "18px" }}
               size="regular"
               outline={true}
               placeholder="Type your message here"

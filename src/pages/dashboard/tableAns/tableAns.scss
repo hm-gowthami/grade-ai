@@ -1,6 +1,11 @@
 .table1 {
   width: "100%";
-  border-radius: 50px;
+  // border-radius: 50px;
+  background: rgb(255, 255, 255, 0.5);
+  // border-radius: 8px;
+  box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.945);
+  opacity: 1; /* Start with form invisible for animation */
+  padding-top:10px;
 }
 .thead1 {
   height: 30px;
@@ -31,7 +36,7 @@
   height: auto;
   color: rgb(19, 1, 1);
   font-size: 16px;
-  background-color:#bdf1bd;
+  background-color: #bdf1bd;
   border-radius: 50px;
 }
 .rubrics-th1 {
@@ -79,7 +84,7 @@
   width: 20%;
   padding: 20px;
 }
-.rubrics-cell-icon-num{
-    height: 50px;
-    border: 1px rgb(238, 61, 61);
+.rubrics-cell-icon-num {
+  height: 50px;
+  border: 1px rgb(238, 61, 61);
 }

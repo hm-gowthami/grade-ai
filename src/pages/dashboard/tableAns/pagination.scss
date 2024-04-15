@@ -1,12 +1,31 @@
+@keyframes fadeInUp {
+  from {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(40px);
+    opacity: 1;
+  }
+}
 .exam-container {
+  animation: fadeInUp 1s ease forwards;
   font-family: Arial, sans-serif;
   width: 60% !important;
+  background: rgb(255, 255, 255, 0.5);
+  border-radius: 8px;
+  box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.945);
+  opacity: 1; /* Start with form invisible for animation */
 }
 
 .question-display {
   margin-bottom: 5px;
   padding: 20px;
   border-radius: 8px;
+  background: rgb(255, 255, 255, 0.5);
+  border-radius: 8px;
+  box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.945);
+  opacity: 1; /* Start with form invisible for animation */
 }
 
 .question-display h3 {
@@ -17,4 +36,3 @@
   font-size: 16px;
   margin-bottom: 20px;
 }
-
