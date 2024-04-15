@@ -1,6 +1,7 @@
 import React from "react";
 import Check from "./check";
 import { Card, CardHeader, Typography } from "@material-tailwind/react";
+import DynamicForm from "./Assessment/dymmy";
 
 export function Student() {
   let student = true;
@@ -14,6 +15,7 @@ export function Student() {
         </CardHeader>
       </Card>
       <Check student={student} />
+      <DynamicForm/>
     </div>
   );
 }

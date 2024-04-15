@@ -46,7 +46,7 @@ function DynamicForm() {
             placeholder="Number 2"
           />
           {rows.length > 1 && (
-            <button onClick={() => handleRemoveRow(index)} className="remove-btn">Remove</button>
+            <button onClick={() => handleRemoveRow(index)} className="remove-btn">X</button>
           )}
         </div>
       ))}
