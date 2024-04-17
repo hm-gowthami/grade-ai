@@ -4,7 +4,7 @@ import routes from "@/routes";
 export function Dashboard() {
   return (
     <div className="min-h-screen bg-blue-gray-50/50">
-      <div className="p-4 xl:ml-100">
+      <div >
         <DashboardNavbar />
         <Routes>
           {routes.map(

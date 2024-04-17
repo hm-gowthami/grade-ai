@@ -9,16 +9,17 @@ const TableComponent = ({ data }) => {
       style={{
         display: "flex",
         flexDirection: "row",
-        width: "100%",
+        width: "80%",
         justifyContent: "center",
       }}
     >
       <div className="exam-container">
         <div className="question-display">
           <Card>
-            {data?.map((each) => {
-              return <EachQuestion head={each} />;
-            })}
+            {/* {data?.map((each) => {
+              return */}
+               <EachQuestion head={data} />;
+            {/* })} */}
           </Card>
         </div>
       </div>

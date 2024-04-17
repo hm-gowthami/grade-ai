@@ -5,7 +5,7 @@
   // border-radius: 8px;
   box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.945);
   opacity: 1; /* Start with form invisible for animation */
-  padding-top:10px;
+  padding-top: 10px;
 }
 .thead1 {
   height: 30px;
@@ -77,14 +77,96 @@
   background-color: rgb(74, 116, 74);
 }
 .rubrics-cell {
-  width: 70%;
+  width: 50% !important;
   padding: 20px;
+  cursor: pointer;
 }
 .rubrics-cell-icon {
   width: 20%;
   padding: 20px;
 }
 .rubrics-cell-icon-num {
+  width: auto;
   height: 50px;
   border: 1px rgb(238, 61, 61);
+}
+
+.card-1 {
+  padding: 20px;
+  margin: 30px;
+  border: none !important;
+  background: rgba(246, 242, 242, 0.5) !important;
+  border-radius: 8px !important;
+  box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.945) !important;
+  opacity: 1 !important; /* Start with form invisible for animation */
+}
+.card-2 {
+  padding: 20px;
+  margin: 30px;
+  border: none !important;
+  background: rgba(246, 242, 242, 0.5) !important;
+  border-radius: 8px !important;
+  box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.945) !important;
+  opacity: 1 !important; /* Start with form invisible for animation */
+}
+
+.card {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+}
+
+.highlight {
+  background-color: rgb(29, 56, 212);
+  color: white;
+  animation: zoomInOut 2s infinite !important;
+}
+
+.text-zoom {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  transition: transform 0.5s ease;
+}
+
+// @keyframes pulse {
+//   0% {
+//     background-color: rgb(44, 31, 195);
+//   }
+//   50% {
+//     background-color: white;
+//   }
+//   100% {
+//     background-color: rgb(55, 15, 150);
+//   }
+// }
+
+// .text-zoom:hover {
+//   animation: zoomInOut 2s infinite;
+// }
+
+/* Keyframes for zooming in and out */
+// @keyframes zoomIn {
+//   from { transform: scale(0.5); }
+//   to { transform: scale(1); }
+// }
+
+// .zoom {
+//   animation: zoomIn 0.5s forwards;
+// }
+@keyframes zoomIn {
+  0%,
+  100% {
+    transform: scale(1); /* Original size */
+  }
+  50% {
+    transform: scale(1.5); /* 1.5 times the original size */
+  }
+}
+.highlight {
+  background-color: rgb(29, 56, 212) !important;
+  color: white !important;
+  animation: zoomIn 1s forwards !important;
 }

@@ -1,90 +1,71 @@
 import React, { useState } from "react";
 
-import { input, Button, Textarea, Typography } from "@material-tailwind/react";
+import { Input, Button, Textarea, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import "./assessment.scss";
 import TableComponent from "../tableAns/tableAns";
 import Spinner from "./spinner";
-import DynamicForm from "./dynamicInput";
-import { v4 as uuidv4 } from "uuid";
 
-function generateUniqueId() {
-  return uuidv4(); // Generates a UUID (e.g., 'f47ac10b-58cc-4372-a567-0e02b2c3d479')
-}
 const AssessmentFormPage = () => {
   const [formData, setFormData] = useState({
     question: "",
     total_marks: "",
     answer: "",
+    rubrics: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [resultData, setResultData] = useState(null);
   const [error, setError] = useState("");
-  const [dynamicInputs, setDynamicInputs] = useState([
-    { id: generateUniqueId(), rubrics_text: "", rubric_mark: "" },
-  ]);
-  let rubricsCheck;
-  for (let i = 0; i < dynamicInputs.length; i++) {
-    rubricsCheck =
-      dynamicInputs[i].rubrics_text.trim() === "" ||
-      dynamicInputs[i].rubric_mark.trim() === "";
-  }
+
   const isFormIncomplete =
     formData.total_marks.trim() === "" ||
     formData.question.trim() === "" ||
-    formData.answer.trim() === "";
-  const totalCheck = rubricsCheck || isFormIncomplete;
+    formData.answer.trim() === "" ||
+    formData.rubrics.trim() === "";
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  // Function to handle input changes in dynamic fields
-  const handleDynamicInputChange = (index, event) => {
-    const newInputs = [...dynamicInputs];
-    newInputs[index][event.target.name] = event.target.value;
-    setDynamicInputs(newInputs);
-  };
-
-  // Function to add new input row to dynamic fields
-
-  const addDynamicInput = () => {
-    setDynamicInputs([
-      ...dynamicInputs,
-      { id: generateUniqueId(), rubrics_text: "", rubric_mark: "" },
-    ]);
-  };
-
-  const handleRemoveRow = (index) => {
-    let newRows = dynamicInputs.filter((item) => item.id !== index);
-    setDynamicInputs(newRows);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (totalCheck) {
+    if (isFormIncomplete) {
       // You could set an error message here if needed
       return;
     }
     setIsLoading(true);
-
-    const formPayload = structuredClone(formData);
-    let payload = {
-      question: formPayload.question,
-      total_marks: formPayload.total_marks,
-      answer: formPayload.answer,
-      rubrics: dynamicInputs,
-    };
-    console.log("payload", payload);
     try {
       const response = await axios.post(
-        "http://3.109.182.96:5000/answerEvaluation",
-        payload
+        "http://13.234.113.33:5000/evaluate",
+        formData
       );
       if (response.status === 200) {
         console.log("res", response);
         if (typeof response?.data === "object" && response !== null) {
-          setResultData(response?.data);
+          console.log("Response is an object:", response.data);
+          // Adding new objects to the nestedArray
+          const updateData = (data) => {
+            // const additionalObject = { subKey3: "subValue3" };
+
+            // Combining the existing nestedArray with the new object
+            const combinedArray = [...data.rubrics];
+
+            // Assigning unique IDs to each object in the combined array
+            const updatedNestedArray = combinedArray.map((item, index) => ({
+              ...item,
+              id: index + 1, // Start ids from 1 and increment for each object
+            }));
+
+            // Update the original data structure
+            data.rubrics = updatedNestedArray;
+
+            return data;
+          };
+          console.log("updated-->Data", updateData(response.data));
+          setResultData(updateData(response.data));
         } else {
+          console.error("Response is not an object:", response.data);
           setError(response?.data);
         }
       }
@@ -100,11 +81,7 @@ const AssessmentFormPage = () => {
       <div>
         <form className="form-ass">
           <div className="text-center">
-            <Typography
-              variant="h2"
-              style={{ color: "#1b1b5e" }}
-              className="animated-text"
-            >
+            <Typography variant="h2" color="black" className="animated-text">
               {" "}
               Assessment
             </Typography>
@@ -112,160 +89,85 @@ const AssessmentFormPage = () => {
           <div className="div-input-parent">
             <div className="div-input-1">
               <Typography
-                variant="h5"
-                style={{ color: "#1b1b5e" }}
+                variant="large"
+                color="black"
                 className="mb-3 font-medium"
               >
                 Question
               </Typography>
-              <input
+              <Input
                 size="lg"
-                style={{ color: "#1b1b5e", fontSize: "18px" }}
+                style={{ color: "black", fontSize: "18px" }}
                 fullWidth
                 type="text"
                 name="question"
                 value={formData.question}
                 onChange={handleChange}
-                placeholder="Enter a question"
+                placeholder="Enter a text"
               />{" "}
             </div>{" "}
             <div className="div-input-2">
               <Typography
-                variant="h5"
-                style={{ color: "#1b1b5e" }}
+                variant="large"
+                color="black"
                 className="mb-3 font-medium"
               >
                 Marks
               </Typography>
-              <input
+              <Input
                 size="lg"
-                min={0}
-                style={{ color: "#1b1b5e", fontSize: "18px" }}
+                style={{ color: "black", fontSize: "18px" }}
                 fullWidth
-                type="number"
+                type="text"
                 name="total_marks"
                 value={formData.total_marks}
                 onChange={handleChange}
-                placeholder="0"
+                placeholder="Enter a text"
               />{" "}
             </div>
           </div>
           <div className="div-input">
             <Typography
-              variant="h5"
-              style={{ color: "#1b1b5e" }}
+              variant="large"
+              color="black"
               className="mb-3 font-medium"
             >
               Answer
             </Typography>
             <Textarea
-              style={{ color: "#1b1b5e", fontSize: "18px" }}
+              style={{ color: "black", fontSize: "18px" }}
               className="input-field"
               name="answer"
               value={formData.answer}
               onChange={handleChange}
-              // color="lightBlue"
+              color="lightBlue"
               size="regular"
               outline={true}
-              placeholder="Give your answer"
+              placeholder="Type your message here"
             />
           </div>
-          <div
-            style={{
-              maxHeight: "300px",
-              overflowY: "auto",
-              overflowX: "hidden",
-              width: "100%",
-              // margin: "20px",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginLeft: "10px",
-                marginBottom: "10px",
-                justifyContent: "space-between",
-              }}
+
+          <div className="div-input-rubrics">
+            <Typography
+              variant="large"
+              color="black"
+              className="mb-3 font-medium"
             >
-              <Typography
-                variant="h5"
-                style={{ color: "#1b1b5e", width: "80%" }}
-              >
-                Rubrics
-              </Typography>
-              <Typography
-                variant="h5"
-                style={{ color: "#1b1b5e", marginRight: "55px" }}
-              >
-                marks
-              </Typography>
-            </div>
-            {dynamicInputs.map((input, index) => (
-              <div
-                key={input.id}
-                style={{
-                  marginBottom: "10px",
-                  marginLeft: "10px",
-                  width: "100%",
-                  paddingRight:"20px"
-                }}
-                className="div-input-parent-rubric"
-              >
-                <div className="div-input-dyn-1">
-                  <input
-                    size="lg"
-                    style={{ color: "#1b1b5e", fontSize: "18px", width: "" }}
-                    fullWidth
-                    type="text"
-                    name="rubrics_text"
-                    value={input.rubrics_text}
-                    onChange={(e) => handleDynamicInputChange(index, e)}
-                    placeholder="Enter the rubrics"
-                  />{" "}
-                </div>{" "}
-                <div
-                  style={{
-                    width: "10%",
-                  }}
-                >
-                  <input
-                    size="lg"
-                    min={0}
-                    style={{
-                      color: "#1b1b5e",
-                      fontSize: "18px",
-                      width: "100%",
-                    }}
-                    type="number"
-                    name="rubric_mark"
-                    value={input.rubric_mark}
-                    onChange={(e) => handleDynamicInputChange(index, e)}
-                    placeholder="0"
-                  />{" "}
-                </div>
-                <div>
-                  <button
-                    onClick={addDynamicInput}
-                    className="add-btn"
-                    type="button"
-                  >
-                    <strong> + </strong>
-                  </button>
-                  {dynamicInputs.length > 1 && (
-                    <button
-                      onClick={() => handleRemoveRow(input.id)}
-                      className="remove-rubric-btn"
-                    >
-                      <strong> x </strong>
-                    </button>
-                  )}
-                </div>
-              </div>
-            ))}
+              Rubrics
+            </Typography>
+            <Textarea
+              color="lightBlue"
+              name="rubrics"
+              value={formData.rubrics}
+              onChange={handleChange}
+              style={{ color: "black", fontSize: "18px" }}
+              size="regular"
+              outline={true}
+              placeholder="Type your message here"
+            />
           </div>
           <Button
-            disabled={totalCheck}
+            disabled={isFormIncomplete}
             className="button-ass"
             onClick={handleSubmit}
           >
@@ -273,7 +175,7 @@ const AssessmentFormPage = () => {
           </Button>
         </form>
       </div>
-      <div style={{ marginTop: "30px", width: "100%" }}>
+      <div style={{ marginTop: "30px" }}>
         <div>
           {isLoading ? (
             <Spinner />
