@@ -27,17 +27,7 @@ const FileItem = ({ file, deleteFile, props }) => {
 
   const handleClick = async () => {
     navigate('/assessment', { state: { data: "gowthami"} });
-    // try {
-    //   // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-    //   const response = await axios.get('YOUR_API_ENDPOINT');
-    //   console.log(response.data);
-    
-    //   // Navigate to the new page and pass the response data as state
-    //   //navigate('/new-page', { state: { data: response.data } });
-      
-    // } catch (error) {
-    //   console.error('There was an error with the API call', error);
-    // }
+
   };
 
 

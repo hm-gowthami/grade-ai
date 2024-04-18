@@ -15,7 +15,7 @@ function Evalution({ rubrics, hoveredId, obtainedMarks, setHoveredId }) {
   console.log("EValue", hoveredId, rubrics);
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <h3 className="eval-heading">Evalution</h3>
+      <h3 className="eval-heading">Evaluation</h3>
       <div className="evalution">
         {rubrics.map((item, index) => (
           <div
@@ -52,7 +52,7 @@ function Evalution({ rubrics, hoveredId, obtainedMarks, setHoveredId }) {
       <div className="total-marks">
         <h3>
           {" "}
-          <b>Total Final Marks :</b> <b>{obtainedMarks} </b>
+          <b>Total Marks :</b> <b>{obtainedMarks} </b>
         </h3>
       </div>
     </div>
