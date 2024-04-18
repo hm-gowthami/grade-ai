@@ -11,10 +11,10 @@
 @keyframes zoomIn {
   0%,
   100% {
-    transform: scale(1); /* Original size */
+    transform: scale(1);
   }
   50% {
-    transform: scale(1.2); /* 1.5 times the original size */
+    transform: scale(1.2);
   }
 }
 .animated-text {
@@ -41,7 +41,7 @@
   padding-bottom: 10px;
   border-radius: 8px;
   box-shadow: 12px 14px 16px rgba(34, 22, 22, 0.9);
-  opacity: 0; /* Start with form invisible for animation */
+  opacity: 0;
 }
 .h2-ass {
   margin: 20px;
@@ -68,7 +68,6 @@
   margin: 10px;
 }
 .div-input-2 {
-  /* width: 5% !important; */
   margin: 10px;
 }
 
@@ -86,13 +85,12 @@
   margin-top: 20px;
   margin-bottom: 20px;
   box-shadow: 12px 14px 16px rgba(34, 22, 22, 0.9) !important;
-  opacity: 1 !important; /* Start with form invisible for animation */
-  // animation: fadeInUp 1s ease forwards;
+  opacity: 1 !important;
 }
 .button-ass:hover {
   background-color: #2a0369 !important;
   cursor: pointer;
   box-shadow: 12px 14px 16px rgba(34, 22, 22, 0.9) !important;
-  opacity: 1 !important; /* Start with form invisible for animation */
+  opacity: 1 !important;
   animation: zoomIn 1s ease forwards !important;
 }

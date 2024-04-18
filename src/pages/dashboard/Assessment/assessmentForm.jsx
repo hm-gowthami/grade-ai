@@ -31,7 +31,6 @@ const AssessmentFormPage = () => {
     e.preventDefault();
 
     if (isFormIncomplete) {
-      // You could set an error message here if needed
       return;
     }
     setIsLoading(true);

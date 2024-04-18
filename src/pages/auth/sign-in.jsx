@@ -12,7 +12,7 @@ export function SignIn() {
   const [password, setPassword] = useState("");
   const [check, setCheck] = useState(false);
   const handelSubmit = (e) => {
-    // e.preventDefault()
+    
   };
   return (
     <section className="ml-8 flex gap-4">

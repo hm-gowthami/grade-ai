@@ -1,18 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./evalution.scss";
-import { faExclamation } from "@fortawesome/free-solid-svg-icons";
-
-// const evaluations = [
-//   {
-//     key: "Mention 2 types of force",
-//     marks: "1",
-//     evaluation:
-//       "The student mentioned two types of force: contact force and field force, earning 1 mark.",
-//   },
-// ];
-
-function Evalution({ rubrics, hoveredId, obtainedMarks, setHoveredId }) {
-  console.log("EValue", hoveredId, rubrics);
+function Evalution({ rubrics, hoveredId, obtainedMarks }) {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <h3 className="eval-heading">Evaluation</h3>
@@ -25,7 +12,6 @@ function Evalution({ rubrics, hoveredId, obtainedMarks, setHoveredId }) {
               margin: "20px",
               border: item.marks <= 0 ? "2px solid red" : " 2px solid green",
               borderRadius: "15px",
-              float: "right",
             }}
             key={index}
             className={`card eval-card ${

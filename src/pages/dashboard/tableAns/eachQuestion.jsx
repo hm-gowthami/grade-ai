@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Card } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faExclamation, faX } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faExclamation } from "@fortawesome/free-solid-svg-icons";
 import "./tableAns.scss";
 import Evalution from "./evalution";
 
@@ -11,10 +11,8 @@ export const EachQuestion = ({ head }) => {
   const [specialText, setSpecialText] = useState(null);
 
   const handleMouseEnter = (id, text) => {
-    console.log("text", text);
     setHoveredId(id);
     setSpecialText(text);
-    console.log("hoveredId", hoveredId, text, specialText);
   };
 
   const handleMouseLeave = () => {
@@ -54,9 +52,6 @@ export const EachQuestion = ({ head }) => {
                         part.toLowerCase() === specialText.toLowerCase() ? (
                           <span
                             key={index}
-                            // className={` ${
-                            //   hoveredId === each.id ? "rubric-highlight" : ""
-                            // }`}
                             className=" card eval-card ans-highlight"
                           >
                             {part}
@@ -71,8 +66,6 @@ export const EachQuestion = ({ head }) => {
             </tr>
           </tbody>
         </table>
-        {/* <br />
-        <br /> */}
         <table className="table2">
           <tbody>
             <tr style={{ height: "70px" }}>
@@ -82,7 +75,6 @@ export const EachQuestion = ({ head }) => {
             </tr>
           </tbody>
         </table>
-        {/* <br /> */}
         <div className="table2">
           <div className="rubrics-cell-tr">
             {rubrics.map((each) => {

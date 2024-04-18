@@ -11,10 +11,8 @@ import {
 import "./dashboard-nav.scss";
 export function DashboardNavbar() {
   return (
-    <Navbar style={{height:"70px"}} fullWidth>
-      {/* <div className="flex justify-between gap-6 md:flex-row md:items-center">
-        <div className="flex justify-between gap-6 md:flex-row md:items-center"> */}
-      <div className="flex justify-between gap-6 md:flex-row md:items-center" >
+    <Navbar style={{ height: "70px" }} fullWidth>
+      <div className="flex justify-between gap-6 md:flex-row md:items-center">
         <div>
           <Link to="/dashboard/home">
             <Button variant="text" className="butten-nav">

@@ -37,7 +37,6 @@ export function SignUp() {
             Grade AI Sign Up
           </Typography>
         </div>
-        {/* //noValidate */}
         <form
           style={{ paddingTop: "30px", paddingBottom: "30px" }}
           onSubmit={onSubmit}
@@ -133,7 +132,6 @@ export function SignUp() {
               placeholder="Select Your Role"
               value={selectedOption}
               required
-              // className="input-selete"
               onChange={(e) => setSelectedOption(e)}
             >
               <Option value="teacher">Teacher</Option>
