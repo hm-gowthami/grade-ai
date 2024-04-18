@@ -1,0 +1,58 @@
+.eval-child {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  border-radius: 10px !important;
+  font-weight: bold;
+}
+.mark {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 20%;
+  height: auto;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  // padding-top: 25px;
+
+  border-top-right-radius: 10px; /* Border radius for right top corner */
+  border-bottom-right-radius: 10px;
+  /* padding: 20px; */
+}
+.eval-heading {
+  color: rgb(33, 2, 101);
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px !important;
+  background: rgba(246, 242, 242, 0.5) !important;
+  border-radius: 8px !important;
+  box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.945) !important;
+  opacity: 1 !important; /* Start with form invisible for animation */
+
+  font-size: 40px;
+  text-align: center;
+  margin: 10px;
+}
+.eval-text {
+  width: 80%;
+  color: rgb(5, 5, 113);
+  text-align: center;
+  padding: 10px;
+}
+
+.evalution {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+.total-marks {
+  width: auto;
+  color: rgb(33, 2, 101);
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 2px !important;
+}

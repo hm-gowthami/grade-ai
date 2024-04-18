@@ -7,10 +7,10 @@ const TableComponent = ({ data }) => {
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "row",
+        // display: "flex",
+        // flexDirection: "row",
         width: "80%",
-        justifyContent: "center",
+        // justifyContent: "center",
       }}
     >
       <div className="exam-container">

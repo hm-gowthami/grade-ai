@@ -41,9 +41,7 @@ const AssessmentFormPage = () => {
         formData
       );
       if (response.status === 200) {
-        console.log("res", response);
         if (typeof response?.data === "object" && response !== null) {
-          console.log("Response is an object:", response.data);
           // Adding new objects to the nestedArray
           const updateData = (data) => {
             // const additionalObject = { subKey3: "subValue3" };
@@ -175,16 +173,21 @@ const AssessmentFormPage = () => {
           </Button>
         </form>
       </div>
-      <div style={{ marginTop: "30px" }}>
-        <div>
-          {isLoading ? (
-            <Spinner />
-          ) : error ? (
-            <h2 style={{ color: "red" }}>{error}</h2>
-          ) : (
-            resultData && <TableComponent data={resultData} />
-          )}
-        </div>
+      <div
+        style={{
+          marginTop: "30px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
+        {isLoading ? (
+          <Spinner />
+        ) : error ? (
+          <h2 style={{ color: "red" }}>{error}</h2>
+        ) : (
+          resultData && <TableComponent data={resultData} />
+        )}
       </div>
     </div>
   );
