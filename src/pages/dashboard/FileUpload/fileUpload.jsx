@@ -9,12 +9,10 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
     if (!file) return;
     file.isUploading = true;
     setFiles([...files, file]);
-    // upload file
     const formData = new FormData();
     formData.append("newFile", file, file.name);
     file.isUploading = false;
     setFiles([...files, file]);
-   
   };
 
   return (

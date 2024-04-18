@@ -31,7 +31,6 @@ const AssessmentFormPage = () => {
     e.preventDefault();
 
     if (isFormIncomplete) {
-      // You could set an error message here if needed
       return;
     }
     setIsLoading(true);
@@ -41,31 +40,9 @@ const AssessmentFormPage = () => {
         formData
       );
       if (response.status === 200) {
-        if (typeof response?.data === "object" && response !== null) {
-          // Adding new objects to the nestedArray
-          const updateData = (data) => {
-            // const additionalObject = { subKey3: "subValue3" };
-
-            // Combining the existing nestedArray with the new object
-            const combinedArray = [...data.rubrics];
-
-            // Assigning unique IDs to each object in the combined array
-            const updatedNestedArray = combinedArray.map((item, index) => ({
-              ...item,
-              id: index + 1, // Start ids from 1 and increment for each object
-            }));
-
-            // Update the original data structure
-            data.rubrics = updatedNestedArray;
-
-            return data;
-          };
-          console.log("updated-->Data", updateData(response.data));
-          setResultData(updateData(response.data));
-        } else {
-          console.error("Response is not an object:", response.data);
-          setError(response?.data);
-        }
+        setFormData(response?.data);
+      } else {
+        setError(response?.data);
       }
     } catch (error) {
       console.error("There was an error with the API call", error);

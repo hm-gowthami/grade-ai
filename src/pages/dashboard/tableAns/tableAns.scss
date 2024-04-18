@@ -1,10 +1,8 @@
 .table1 {
   width: "100%";
-  // border-radius: 50px;
   background: rgb(255, 255, 255, 0.5);
-  // border-radius: 8px;
   box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.945);
-  opacity: 1; /* Start with form invisible for animation */
+  opacity: 1;
   padding-top: 10px;
 }
 .thead1 {
@@ -24,7 +22,6 @@
   padding: 20px;
   background-color: white;
   color: rgb(2, 16, 2);
-  /* font-weight: 200px; */
 }
 .ans-code-1 {
   width: 3%;
@@ -84,7 +81,7 @@
   background: rgba(246, 242, 242, 0.5) !important;
   border-radius: 8px !important;
   box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.645) !important;
-  opacity: 1 !important; /* Start with form invisible for animation */
+  opacity: 1 !important;
 }
 .card-2 {
   width: 50%;
@@ -94,7 +91,7 @@
   background: rgba(246, 242, 242, 0.5) !important;
   border-radius: 8px !important;
   box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.645) !important;
-  opacity: 1 !important; /* Start with form invisible for animation */
+  opacity: 1 !important;
 }
 
 @keyframes fadeInDown {
@@ -110,10 +107,10 @@
 @keyframes zoomIn {
   0%,
   100% {
-    transform: scale(1); /* Original size */
+    transform: scale(1);
   }
   50% {
-    transform: scale(1.2); /* 1.5 times the original size */
+    transform: scale(1.2);
   }
 }
 .highlight {
@@ -121,12 +118,10 @@
   color: white !important;
   background: rgba(250, 247, 247, 0.955) !important;
   box-shadow: 10px 14px 16px rgba(6, 6, 6, 0.945) !important;
-  opacity: 1 !important; /* Start with form invisible for animation */
+  opacity: 1 !important;
   animation: zoomIn 2s infinite !important;
-  //animation: fadeInDown 1s ease forwards !important;
 }
 .rubric-highlight {
-  // text-align: center !important;
   color: rgb(5, 5, 90) !important;
   background: rgba(250, 247, 247, 0.955) !important;
   border-radius: 15px;
@@ -137,7 +132,7 @@
   color: white !important;
   padding: 10px;
 
-  background-color: rgb(18, 3, 107) !important; // border-radius: 15px;
+  background-color: rgb(18, 3, 107) !important;
   animation: zoomIn 2s infinite !important;
 }
 

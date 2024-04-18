@@ -1,19 +1,12 @@
-import {
-  Input,
-  Checkbox,
-  Button,
-  Typography,
-} from "@material-tailwind/react";
+import { Input, Checkbox, Button, Typography } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import './sign.scss'
+import "./sign.scss";
 export function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [check, setCheck] = useState(false);
-  const handelSubmit = (e) => {
-    // e.preventDefault()
-  };
+  const handelSubmit = (e) => {};
   return (
     <section className="ml-8 flex gap-4">
       <div className="w-full lg:w-3/5 mt-5">

@@ -26,20 +26,8 @@ const FileItem = ({ file, deleteFile, props }) => {
   ).toString();
 
   const handleClick = async () => {
-    navigate('/assessment', { state: { data: "gowthami"} });
-    // try {
-    //   // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-    //   const response = await axios.get('YOUR_API_ENDPOINT');
-    //   console.log(response.data);
-    
-    //   // Navigate to the new page and pass the response data as state
-    //   //navigate('/new-page', { state: { data: response.data } });
-      
-    // } catch (error) {
-    //   console.error('There was an error with the API call', error);
-    // }
+    navigate("/assessment", { state: { data: "gowthami" } });
   };
-
 
   const handleOpen = (pdfUrl) => {
     setSelectedPdf(pdfUrl);
@@ -57,14 +45,11 @@ const FileItem = ({ file, deleteFile, props }) => {
 
   return (
     <>
-      {/* className="file-item" */}
       <li key={file.name}>
         <FontAwesomeIcon icon={faFileAlt} />
         <p>{file.name}</p>
         <div className="actions">
-          {/* <div className="loading"></div> */}
           {file.isUploading && (
-            // <span>
             <>
               <span>
                 <FontAwesomeIcon
@@ -89,7 +74,6 @@ const FileItem = ({ file, deleteFile, props }) => {
                 />{" "}
               </span>
             </>
-            // </span>
           )}
           {!file.isUploading && (
             <>
@@ -98,7 +82,6 @@ const FileItem = ({ file, deleteFile, props }) => {
                 <FontAwesomeIcon
                   icon={faEye}
                   beat
-                  // style={{ color: "#0c72c0" }}
                   size="lg"
                   className="fa-solid"
                   onClick={() => handleOpen(file)}
@@ -110,7 +93,6 @@ const FileItem = ({ file, deleteFile, props }) => {
                   <FontAwesomeIcon
                     flip
                     size="lg"
-                    // style={{ color: "#63E6BE" }}
                     icon={faPenToSquare}
                     className="fa-solid"
                     onClick={() => deleteFile(file.name)}
@@ -124,22 +106,18 @@ const FileItem = ({ file, deleteFile, props }) => {
                   shake
                   size="lg"
                   className="fa-solid"
-                  // style={{ color: "#cc0519" }}
                   onClick={() => deleteFile(file.name)}
                 />
               </span>
               {!props.teacher && (
                 <span>
-                  {/* <Link to="/auth/sign-in" className="text-blue-900 ml-1"> */}
                   <span className="icons-words"> Assessment </span>
                   <FontAwesomeIcon
                     icon={faCircleCheck}
                     beat
                     size="lg"
-                    // style={{ color: "#230481" }}
                     onClick={() => handleClick()}
                   />
-                  {/* </Link> */}
                 </span>
               )}{" "}
             </>
@@ -160,13 +138,6 @@ const FileItem = ({ file, deleteFile, props }) => {
                       />
                     );
                   })}
-                {/* {Array.from(new Array(numPages), (el, index) => (
-                  <Page
-                    key={`page_${index + 1}`}
-                    pageNumber={index + 1}
-                    width={600} // Adjust width as needed
-                  />
-                ))} */}
               </Document>
               <p>
                 Page {pageNumber} of {numPages}

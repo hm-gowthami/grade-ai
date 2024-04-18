@@ -11,10 +11,8 @@ export const EachQuestion = ({ head }) => {
   const [specialText, setSpecialText] = useState(null);
 
   const handleMouseEnter = (id, text) => {
-    console.log("text", text);
     setHoveredId(id);
     setSpecialText(text);
-    console.log("hoveredId", hoveredId, text, specialText);
   };
 
   const handleMouseLeave = () => {
@@ -40,7 +38,7 @@ export const EachQuestion = ({ head }) => {
         <table className="table1">
           <thead className="thead1">
             <tr>
-              <th colSpan={3} >
+              <th colSpan={3}>
                 <h4> Q. {question}</h4>
               </th>
             </tr>
@@ -54,9 +52,6 @@ export const EachQuestion = ({ head }) => {
                         part.toLowerCase() === specialText.toLowerCase() ? (
                           <span
                             key={index}
-                            // className={` ${
-                            //   hoveredId === each.id ? "rubric-highlight" : ""
-                            // }`}
                             className=" card eval-card ans-highlight"
                           >
                             {part}
@@ -71,8 +66,6 @@ export const EachQuestion = ({ head }) => {
             </tr>
           </tbody>
         </table>
-        {/* <br />
-        <br /> */}
         <table className="table2">
           <tbody>
             <tr style={{ height: "70px" }}>
@@ -82,7 +75,6 @@ export const EachQuestion = ({ head }) => {
             </tr>
           </tbody>
         </table>
-        {/* <br /> */}
         <div className="table2">
           <div className="rubrics-cell-tr">
             {rubrics.map((each) => {

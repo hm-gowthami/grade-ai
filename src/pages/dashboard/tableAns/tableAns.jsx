@@ -7,20 +7,14 @@ const TableComponent = ({ data }) => {
   return (
     <div
       style={{
-        // display: "flex",
-        // flexDirection: "row",
         width: "80%",
-        // justifyContent: "center",
       }}
     >
       <div className="exam-container">
         <div className="question-display">
-          <Card>
-            {/* {data?.map((each) => {
-              return */}
-               <EachQuestion head={data} />;
-            {/* })} */}
-          </Card>
+         
+            <EachQuestion head={data} />;
+         
         </div>
       </div>
     </div>
