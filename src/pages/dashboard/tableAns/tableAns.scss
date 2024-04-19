@@ -51,7 +51,8 @@
 .rubrics-cell-tr {
   background-color: white;
   color: rgb(4, 4, 54);
-  border: 1px solid white;
+  border: none;
+  border-radius: 15px !important ;
 }
 .rubrics-cell-tr-success {
   border: 1px white;

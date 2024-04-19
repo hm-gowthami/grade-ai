@@ -48,6 +48,10 @@ const AssessmentFormPage = () => {
       setIsLoading(false);
     }
   };
+  // style={{
+  //   border: '2px solid #ccc', // default border color
+  //   outline: 'none' // removes the default focus outline
+  // }}
 
   return (
     <div className="parent-div">
@@ -76,6 +80,8 @@ const AssessmentFormPage = () => {
                 name="question"
                 value={formData.question}
                 onChange={handleChange}
+                onFocus={(e) => (e.target.style.border = "2px solid black")}
+                onBlur={(e) => (e.target.style.border = "2px solid #ccc")}
                 placeholder="Enter a text"
               />{" "}
             </div>{" "}
