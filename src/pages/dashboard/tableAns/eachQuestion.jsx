@@ -38,7 +38,7 @@ export const EachQuestion = ({ head }) => {
         <table className="table1">
           <thead className="thead1">
             <tr>
-              <th colSpan={3} >
+              <th colSpan={3} style={{padding:"10px"}}>
                 <h4> Q. {question}</h4>
               </th>
             </tr>
