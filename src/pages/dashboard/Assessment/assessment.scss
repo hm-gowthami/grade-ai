@@ -34,18 +34,18 @@
 .animated-text {
   animation: fadeInUp 1s ease forwards;
 }
-
 .parent-div {
   display: flex;
   height: auto;
   flex-direction: column !important;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin-top: 20px;
 }
+
 .form-ass {
   animation: fadeInUp 0.5s ease-out forwards;
-  width: 700px;
+  width: 800px;
   height: 750px;
   display: flex;
   flex-direction: column;
@@ -68,65 +68,27 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  // margin: 20px;
 }
 .div-input-parent-rubric {
   display: flex;
   flex-direction: row;
   width: 90%;
- // margin-left: 10px;
 }
-// .div-input-rubrics {
-//   width: 100%;
-//   padding-left: 20px;
-//   padding-right: 20px;
-// }
-.div-input {
+.div-input-rubrics {
   width: 100%;
-  padding: 10px;
-}
-.div-input-1 {
-  width: 80% !important;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.div-input-2 {
-  width: 15% !important;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.button-ass {
-  background-color: #0e023e !important;
-  color: #ffffff !important;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer !important;
-  transition: transform 0.2s, background-color 0.2s;
-  display: block;
-  width: 30%;
-  margin-top: 20px;
-}
-.button-ass:hover {
-  background-color: #310b4b !important;
-  color: #e9e8ec !important;
-  cursor: pointer;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .div-input-dyn-1 {
   width: 80% !important;
   margin-right: 10px;
-  // margin-left: 10px;
 }
 .div-input-dyn-2 {
-  // width: 5% !important;
   margin-left: 10px;
   margin-right: 10px;
 }
 .div-input-dyn-3 {
-  // width: 5% !important;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -136,57 +98,13 @@
   margin-left: 10px;
   margin-top: 8px;
   cursor: pointer;
-  // color: rgb(169, 24, 24);
-  // font-size: 25px !important;
-  // margin-left: 10px;
-  // cursor: pointer;
-  // margin-top: 15px;
 }
 .add-btn {
   color: rgb(5, 27, 193);
   font-size: 30px !important;
   margin-left: 10px;
-  // margin-right: 10px;
   margin-top: 8px;
   cursor: pointer;
-}
-.parent-div {
-  display: flex;
-  height: auto;
-  flex-direction: column !important;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-.form-ass {
-  animation: fadeInUp 0.5s ease-out forwards;
-  width: 500px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #ffffff;
-  padding-bottom: 10px;
-  border-radius: 8px;
-  box-shadow: 12px 14px 16px rgba(34, 22, 22, 0.9);
-  opacity: 0;
-}
-.h2-ass {
-  margin: 20px;
-  padding: 10px;
-  font-size: 30px !important;
-}
-
-.div-input-parent {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-.div-input-rubrics {
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 .div-input {
   width: 100%;
@@ -222,4 +140,11 @@
   box-shadow: 12px 14px 16px rgba(34, 22, 22, 0.9) !important;
   opacity: 1 !important;
   animation: zoomIn 1s ease forwards !important;
+}
+.parent-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
 }

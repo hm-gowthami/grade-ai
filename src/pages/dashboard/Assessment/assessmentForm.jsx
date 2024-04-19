@@ -73,7 +73,6 @@ const AssessmentFormPage = () => {
       let b = dynamicInputs[i].rubric_mark;
       rubricsText = rubricsText + `${a}: ${b} marks; `;
     }
-    console.log("rubricsText", rubricsText);
 
     let payload = {
       question: formPayload.question,
@@ -81,25 +80,23 @@ const AssessmentFormPage = () => {
       answer: formPayload.answer,
       rubrics: rubricsText && rubricsText,
     };
-    console.log("payload", payload);
-    // try {
-    //   const response = await axios.post(
-    //     "http://3.109.182.96:5000/answerEvaluation",
-    //     payload
-    //   );
-    //   if (response.status === 200) {
-    //     console.log("res", response);
-    //     if (typeof response?.data === "object" && response !== null) {
-    //       setResultData(response?.data);
-    //     } else {
-    //       setError(response?.data);
-    //     }
-    //   }
-    // } catch (error) {
-    //   console.error("There was an error with the API call", error);
-    // } finally {
-    setIsLoading(false);
-    // }
+    try {
+      const response = await axios.post(
+        "http://13.234.113.33:5000/evaluate",
+        payload
+      );
+      if (response.status === 200) {
+        if (typeof response.data === "object") {
+          setResultData(response?.data);
+        } else {
+          setError("Please check data");
+        }
+      }
+    } catch (error) {
+      console.error("There was an error with the API call", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -252,7 +249,7 @@ const AssessmentFormPage = () => {
                     placeholder="0"
                   />{" "}
                 </div>
-                <div>
+                <div className="parent-button">
                   <button
                     onClick={addDynamicInput}
                     className="add-btn"
@@ -281,8 +278,8 @@ const AssessmentFormPage = () => {
           </Button>
         </form>
       </div>
-      <div style={{ marginTop: "30px", width: "100%" }}>
-        <div>
+      <div style={{ marginTop: "30px", width: "100%", display:"flex", flexDirection:"row", justifyContent:"center" }}>
+        {/* <div> */}
           {isLoading ? (
             <Spinner />
           ) : error ? (
@@ -290,7 +287,7 @@ const AssessmentFormPage = () => {
           ) : (
             resultData && <TableComponent data={resultData} />
           )}
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
