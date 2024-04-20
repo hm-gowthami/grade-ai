@@ -8,7 +8,7 @@ import Spinner from "./spinner";
 import { v4 as uuidv4 } from "uuid";
 
 function generateUniqueId() {
-  return uuidv4(); // Generates a UUID (e.g., 'f47ac10b-58cc-4372-a567-0e02b2c3d479')
+  return uuidv4();
 }
 const AssessmentFormPage = () => {
   const [formData, setFormData] = useState({
@@ -36,15 +36,11 @@ const AssessmentFormPage = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  // Function to handle input changes in dynamic fields
   const handleDynamicInputChange = (index, event) => {
     const newInputs = [...dynamicInputs];
     newInputs[index][event.target.name] = event.target.value;
     setDynamicInputs(newInputs);
   };
-
-  // Function to add new input row to dynamic fields
-
   const addDynamicInput = () => {
     setDynamicInputs([
       ...dynamicInputs,
@@ -61,7 +57,6 @@ const AssessmentFormPage = () => {
     e.preventDefault();
 
     if (totalCheck) {
-      // You could set an error message here if needed
       return;
     }
     setIsLoading(true);
@@ -170,7 +165,6 @@ const AssessmentFormPage = () => {
               name="answer"
               value={formData.answer}
               onChange={handleChange}
-              // color="lightBlue"
               size="regular"
               outline={true}
               placeholder="Give your answer"
@@ -182,7 +176,6 @@ const AssessmentFormPage = () => {
               overflowY: "auto",
               overflowX: "hidden",
               width: "100%",
-              // margin: "20px",
             }}
           >
             <div
@@ -278,16 +271,22 @@ const AssessmentFormPage = () => {
           </Button>
         </form>
       </div>
-      <div style={{ marginTop: "30px", width: "100%", display:"flex", flexDirection:"row", justifyContent:"center" }}>
-        {/* <div> */}
-          {isLoading ? (
-            <Spinner />
-          ) : error ? (
-            <h2 style={{ color: "red" }}>{error}</h2>
-          ) : (
-            resultData && <TableComponent data={resultData} />
-          )}
-        {/* </div> */}
+      <div
+        style={{
+          marginTop: "30px",
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
+        {isLoading ? (
+          <Spinner />
+        ) : error ? (
+          <h2 style={{ color: "red" }}>{error}</h2>
+        ) : (
+          resultData && <TableComponent data={resultData} />
+        )}
       </div>
     </div>
   );

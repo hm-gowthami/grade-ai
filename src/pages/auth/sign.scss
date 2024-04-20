@@ -1,6 +1,6 @@
 input:required::after {
     content: "*";
-    color: rgb(9, 1, 32); /* Adjust the color as needed */
+    color: rgb(9, 1, 32); 
     margin-left: 80px;
   }
   
@@ -31,7 +31,7 @@ input:required::after {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    opacity: 0; /* Start with form invisible for animation */
+    opacity: 0; 
   }
   h2 {
     margin: 20px;
