@@ -323,7 +323,6 @@ const AssessmentFormPage = () => {
             left: "50%",
             transform: "translate(-50%, -50%)",
             width: "300px",
-            // padding: "20px",
             borderRadius: "5px",
             zIndex: "999",
           }}
