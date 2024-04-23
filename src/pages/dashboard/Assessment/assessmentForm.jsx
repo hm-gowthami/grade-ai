@@ -6,6 +6,7 @@ import "./assessment.scss";
 import TableComponent from "../tableAns/tableAns";
 import Spinner from "./spinner";
 import { v4 as uuidv4 } from "uuid";
+import { Modal } from "@mui/material";
 
 function generateUniqueId() {
   return uuidv4();
@@ -20,13 +21,14 @@ const AssessmentFormPage = () => {
   const [resultData, setResultData] = useState(null);
   const [error, setError] = useState("");
   const [dynamicInputs, setDynamicInputs] = useState([
-    { id: generateUniqueId(), rubrics_text: "", rubric_mark: "" },
+    { id: generateUniqueId(), rubrics_text: "", rubric_mark: 0 },
   ]);
+  const [openModal, setOpenModal] = useState(false);
   let rubricsCheck;
   for (let i = 0; i < dynamicInputs.length; i++) {
     rubricsCheck =
       dynamicInputs[i].rubrics_text.trim() === "" ||
-      dynamicInputs[i].rubric_mark.trim() === "";
+      dynamicInputs[i].rubric_mark === "";
   }
   const isFormIncomplete =
     formData.total_marks.trim() === "" ||
@@ -36,15 +38,30 @@ const AssessmentFormPage = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const sum = dynamicInputs.reduce((total, item) => {
+    const mark = parseFloat(item.rubric_mark);
+    return !isNaN(mark) ? total + mark : total; 
+  }, 0);
+
   const handleDynamicInputChange = (index, event) => {
     const newInputs = [...dynamicInputs];
     newInputs[index][event.target.name] = event.target.value;
-    setDynamicInputs(newInputs);
+    if (
+      formData.total_marks < sum ||
+      formData.total_marks < newInputs[index].rubric_mark
+    ) {
+      newInputs[index][event.target.name] = "";
+      setDynamicInputs(newInputs);
+      setOpenModal(true);
+    } else {
+      setDynamicInputs(newInputs);
+      setOpenModal(false);
+    }
   };
   const addDynamicInput = () => {
     setDynamicInputs([
       ...dynamicInputs,
-      { id: generateUniqueId(), rubrics_text: "", rubric_mark: "" },
+      { id: generateUniqueId(), rubrics_text: "", rubric_mark: 0 },
     ]);
   };
 
@@ -117,11 +134,10 @@ const AssessmentFormPage = () => {
               >
                 Question
               </Typography>
-              <input
+              <Textarea
                 size="lg"
                 style={{ color: "#1b1b5e", fontSize: "18px" }}
                 fullWidth
-                type="text"
                 name="question"
                 value={formData.question}
                 onChange={handleChange}
@@ -141,7 +157,12 @@ const AssessmentFormPage = () => {
               <input
                 size="lg"
                 min={0}
-                style={{ color: "#1b1b5e", fontSize: "18px" }}
+                style={{
+                  color: "#1b1b5e",
+                  fontSize: "18px",
+                  height: "100px",
+                  width: "70px",
+                }}
                 fullWidth
                 type="number"
                 name="total_marks"
@@ -207,7 +228,6 @@ const AssessmentFormPage = () => {
                   marginBottom: "10px",
                   marginLeft: "10px",
                   width: "100%",
-                  paddingRight: "20px",
                 }}
                 className="div-input-parent-rubric"
               >
@@ -225,7 +245,7 @@ const AssessmentFormPage = () => {
                 </div>{" "}
                 <div
                   style={{
-                    width: "20%",
+                    width: "8%",
                   }}
                 >
                   <input
@@ -235,7 +255,8 @@ const AssessmentFormPage = () => {
                       fontSize: "18px",
                       width: "100%",
                     }}
-                    type="text"
+                    type="number"
+                    min={0}
                     name="rubric_mark"
                     value={input.rubric_mark}
                     onChange={(e) => handleDynamicInputChange(index, e)}
@@ -288,6 +309,39 @@ const AssessmentFormPage = () => {
           resultData && <TableComponent data={resultData} />
         )}
       </div>
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        className="modal-box"
+      >
+        <div
+          style={{
+            backgroundColor: "#4c4cba",
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "300px",
+            color: "white",
+            padding: "20px",
+            borderRadius: "5px",
+            zIndex: "999",
+          }}
+        >
+          <div style={{ display: "flex" }}>
+            <span
+              style={{ marginLeft: "auto", color: "black", cursor: "pointer" }}
+              onClick={() => setOpenModal(false)}
+            >
+              <strong>X</strong>
+            </span>{" "}
+          </div>
+          <h4>
+            Please enter a valid Marks, It should be always lessthan or equal to
+            the Maximum Marks
+          </h4>
+        </div>
+      </Modal>
     </div>
   );
 };
