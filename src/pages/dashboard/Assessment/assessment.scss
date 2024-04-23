@@ -137,6 +137,22 @@
   box-shadow: 12px 14px 16px rgba(34, 22, 22, 0.9) !important;
   opacity: 1 !important;
 }
+.button-ass-disabled{
+  background-color: rgb(196, 196, 196) !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  display: block;
+  width: 30%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 12px 14px 16px rgba(34, 22, 22, 0.9) !important;
+  opacity: 1 !important;
+}
 .button-ass:hover {
   background-color: #2a0369 !important;
   cursor: pointer;
@@ -152,6 +168,6 @@
   padding-bottom: 30px;
 }
 .modal-box{
-  
- // animation: fadeInUp 0.5s ease-out forwards;
+
+ animation: fadeInUp 0.5s ease-out forwards;
 }

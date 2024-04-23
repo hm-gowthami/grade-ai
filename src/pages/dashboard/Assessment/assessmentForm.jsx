@@ -30,18 +30,20 @@ const AssessmentFormPage = () => {
       dynamicInputs[i].rubrics_text.trim() === "" ||
       dynamicInputs[i].rubric_mark === "";
   }
+  const sum = dynamicInputs.reduce((total, item) => {
+    const mark = parseFloat(item.rubric_mark);
+    return !isNaN(mark) ? total + mark : total;
+  }, 0);
+
   const isFormIncomplete =
     formData.total_marks.trim() === "" ||
     formData.question.trim() === "" ||
     formData.answer.trim() === "";
-  const totalCheck = rubricsCheck || isFormIncomplete;
+  const marksCheck = formData.total_marks == sum;
+  const totalCheck = rubricsCheck || isFormIncomplete || !marksCheck;
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const sum = dynamicInputs.reduce((total, item) => {
-    const mark = parseFloat(item.rubric_mark);
-    return !isNaN(mark) ? total + mark : total; 
-  }, 0);
 
   const handleDynamicInputChange = (index, event) => {
     const newInputs = [...dynamicInputs];
@@ -156,7 +158,6 @@ const AssessmentFormPage = () => {
               </Typography>
               <input
                 size="lg"
-                min={0}
                 style={{
                   color: "#1b1b5e",
                   fontSize: "18px",
@@ -285,7 +286,7 @@ const AssessmentFormPage = () => {
           </div>
           <Button
             disabled={totalCheck}
-            className="button-ass"
+            className={totalCheck ? "button-ass-disabled" : "button-ass"}
             onClick={handleSubmit}
           >
             Assessment
@@ -316,27 +317,31 @@ const AssessmentFormPage = () => {
       >
         <div
           style={{
-            backgroundColor: "#4c4cba",
+            backgroundColor: "white",
             position: "fixed",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             width: "300px",
-            color: "white",
-            padding: "20px",
+            // padding: "20px",
             borderRadius: "5px",
             zIndex: "999",
           }}
         >
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", backgroundColor: "#110478" }}>
             <span
-              style={{ marginLeft: "auto", color: "black", cursor: "pointer" }}
+              style={{
+                marginLeft: "auto",
+                color: "white",
+                cursor: "pointer",
+                padding: "10px",
+              }}
               onClick={() => setOpenModal(false)}
             >
               <strong>X</strong>
             </span>{" "}
           </div>
-          <h4>
+          <h4 style={{ padding: "20px", color: "black" }}>
             Please enter a valid Marks, It should be always lessthan or equal to
             the Maximum Marks
           </h4>
