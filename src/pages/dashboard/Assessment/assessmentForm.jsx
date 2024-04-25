@@ -30,28 +30,27 @@ const AssessmentFormPage = () => {
       dynamicInputs[i].rubrics_text.trim() === "" ||
       dynamicInputs[i].rubric_mark === "";
   }
-  const sum = dynamicInputs.reduce((total, item) => {
+  let sum = dynamicInputs.reduce((total, item) => {
     const mark = parseFloat(item.rubric_mark);
     return !isNaN(mark) ? total + mark : total;
   }, 0);
+  sum = parseInt(sum);
 
   const isFormIncomplete =
     formData.total_marks.trim() === "" ||
     formData.question.trim() === "" ||
     formData.answer.trim() === "";
-  const marksCheck = formData.total_marks == sum;
+  const marksCheck = parseInt(formData.total_marks) === sum;
   const totalCheck = rubricsCheck || isFormIncomplete || !marksCheck;
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleDynamicInputChange = (index, event) => {
+    const max_mark = parseInt(formData.total_marks);
     const newInputs = [...dynamicInputs];
     newInputs[index][event.target.name] = event.target.value;
-    if (
-      formData.total_marks < sum ||
-      formData.total_marks < newInputs[index].rubric_mark
-    ) {
+    if (max_mark < sum + 1) {
       newInputs[index][event.target.name] = "";
       setDynamicInputs(newInputs);
       setOpenModal(true);
